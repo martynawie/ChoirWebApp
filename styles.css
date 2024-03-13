@@ -1,0 +1,75 @@
+.image-container {
+    max-height: 200px;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 40%;
+    height: auto;
+}
+
+.logout-link {
+    font-size: 20px;
+    margin-right: 20px;
+}
+
+body {
+    background-image: url('1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#text {
+    height: 25px;
+    border-radius: 5px;
+    padding: 4px;
+    border: solid thin #aaa;
+    width: 100%;
+}
+
+#button {
+    padding: 10px;
+    width: 100px;
+    color: black;
+    background-color: lightblue;
+    border: none;
+}
+
+#box {
+    background-color: #2c3e50;
+    margin: auto;
+    width: 300px;
+    padding: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#box div {
+    font-size: 20px;
+    margin: 10px;
+    color: white;
+}
+
+#box a {
+    color: white;
+}
+
+.login-bcg {
+    background-image: url('1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+body.signup-bcg {
+    background-image: url('3.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+
+.confirmation-message {
+    color: red;
+}
