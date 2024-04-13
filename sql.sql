@@ -9,7 +9,7 @@ CREATE TABLE member (
     password VARCHAR(30),
     memberAddress VARCHAR(100),
     phoneNumber VARCHAR(10),
-    dateJoined DEFAULT CURRENT_DATE,
+    dateJoined DATE,
     birthDate DATE,
     voice VARCHAR(30),
     scheduleDay VARCHAR(15),
