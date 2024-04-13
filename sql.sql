@@ -25,25 +25,25 @@ VALUES
 CREATE TABLE songs (
     songID VARCHAR(100) PRIMARY KEY,
     title VARCHAR(100),
-    composer VARCHAR(75),
+    composer VARCHAR(75)
 );
 
 -- Table for playlists
 CREATE TABLE playlists (
     playlistID VARCHAR(100) PRIMARY KEY,
-    playlistNumber VARCHAR(20),
+    playlistNumber VARCHAR(20)
 );
 
 -- Table for soloist
 CREATE TABLE soloist (
     songID VARCHAR(100) FOREIGN KEY, --How do we use a fk?
-    memberID VARCHAR(100) FOREIGN KEY,
-    solo VARCHAR(100),
+    email VARCHAR(100) FOREIGN KEY,
+    solo VARCHAR(100)
 );
 
 -- Table for user emergency contact
 CREATE TABLE emergencyInfo (
-    memberID VARCHAR(100) FOREIGN KEY,
+    email VARCHAR(100) FOREIGN KEY,
     contactPhone VARCHAR(10),
     contactfName VARCHAR(100),
     contactlName VARCHAR (100),
@@ -53,16 +53,16 @@ CREATE TABLE emergencyInfo (
 -- Table for voice section (do we need this twice?)
 CREATE TABLE songs (
     sectionID VARCHAR(20) PRIMARY KEY,
-    voice VARCHAR(50) FOREIGN KEY,
+    voice VARCHAR(50) FOREIGN KEY
 );
 
 -- Table for rehearsal attendance
 CREATE TABLE Attendance (
     attendanceID VARCHAR(100) PRIMARY KEY,
-    memberID VARCHAR(100) FOREIGN KEY,
+    email VARCHAR(100) FOREIGN KEY,
     rehearsalDate VARCHAR(75),
     attendanceValue BOOLEAN DEFAULT 0,
-    rehearsalLocation VARCHAR(100),
+    rehearsalLocation VARCHAR(100)
 );
 
 -- Table for events
@@ -70,5 +70,5 @@ CREATE TABLE events (
     eventID VARCHAR(100) PRIMARY KEY,
     eventDate VARCHAR(100),
     eventTime VARCHAR(75),
-    playlistID VARCHAR(100) FOREIGN KEY,
+    playlistID VARCHAR(100) FOREIGN KEY
 );
