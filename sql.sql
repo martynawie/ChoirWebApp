@@ -1,5 +1,5 @@
 -- database
-CREATE DATABASE Choir;
+CREATE DATABASE Choir2;
 
 -- Table for user information
 CREATE TABLE member (
@@ -23,21 +23,21 @@ VALUES
 
 -- Table for songs
 CREATE TABLE songs (
-    songID VARCHAR(100) AUTO_INCREMENT PRIMARY KEY,
+    songID INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(100),
     composer VARCHAR(75)
 );
 
 -- Table for playlists
 CREATE TABLE playlists (
-    playlistID VARCHAR(100) AUTO_INCREMENT PRIMARY KEY,
+    playlistID INT AUTO_INCREMENT PRIMARY KEY,
     playlistNumber VARCHAR(20)
 );
 
 -- Table for soloist
 CREATE TABLE soloist (
-    soloistID VARCHAR(100) AUTO_INCREMENT PRIMARY KEY
-    songID VARCHAR(100),
+    soloistID INT AUTO_INCREMENT PRIMARY KEY,
+    songID INT,
     FOREIGN KEY (songID) REFERENCES songs(songID), 
     email VARCHAR(100),
     FOREIGN KEY (email) REFERENCES member(email),
@@ -47,7 +47,7 @@ CREATE TABLE soloist (
 
 -- Table for rehearsal attendance
 CREATE TABLE Attendance (
-    attendanceID VARCHAR(100) AUTO_INCREMENT PRIMARY KEY,
+    attendanceID INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(100),
     FOREIGN KEY (email) REFERENCES member(email),
     rehearsalDate VARCHAR(75),
@@ -57,7 +57,7 @@ CREATE TABLE Attendance (
 
 -- Table for events
 CREATE TABLE events (
-    eventID VARCHAR(100) AUTO_INCREMENT PRIMARY KEY,
+    eventID INT AUTO_INCREMENT PRIMARY KEY,
     eventDate DATE,
     eventTime TIME,
     playlistID VARCHAR(100),

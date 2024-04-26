@@ -2,7 +2,7 @@
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
-$dbname = "Choir";
+$dbname = "Choir2";
 
 $connect = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
 
