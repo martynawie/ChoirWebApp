@@ -1,24 +1,11 @@
-.image-container {
-    max-height: 200px;
-    overflow: hidden;
-}
-
-.image-container img {
-    width: 40%;
-    height: auto;
-}
-
-.logout-link {
-    font-size: 20px;
-    margin-right: 20px;
-}
-
+/* signup.php */
 body {
     background-image: url('1.jpg');
     background-size: cover;
     background-repeat: no-repeat;
 }
 
+/* signup.php & login.php - input text */
 #text {
     height: 25px;
     border-radius: 5px;
@@ -27,6 +14,7 @@ body {
     width: 100%;
 }
 
+/* signup.php & login.php - the signup button and login */
 #button {
     padding: 10px;
     width: 100px;
@@ -34,7 +22,7 @@ body {
     background-color: lightblue;
     border: none;
 }
-
+/* signup.php & login.php - signup and login form container */
 #box {
     background-color: #2c3e50;
     margin: auto;
@@ -47,29 +35,22 @@ body {
     text-align: center;
 }
 
+/* signup.php & login.php - the text inside the signup/login form container. */
 #box div {
     font-size: 20px;
     margin: 10px;
     color: white;
 }
 
+/* signup.php & login.php - the link inside the signup/login form container */
 #box a {
     color: white;
 }
 
-.login-bcg {
-    background-image: url('1.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
+/* login.php - bcg*/
 body.signup-bcg {
     background-image: url('3.png');
     background-size: cover;
     background-repeat: no-repeat;
     
-}
-
-.confirmation-message {
-    color: red;
 }

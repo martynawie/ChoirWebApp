@@ -9,12 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Check if CUNY ID and password are provided
+    // Check if email and password are provided
     if (!empty($email) && !empty($password)) {
-        $query = "
-                SELECT * 
-                FROM member 
-                WHERE email='$email' AND password='$password'";
+        $query = "SELECT * FROM member WHERE email='$email' AND password='$password'";
         $result = mysqli_query($connect, $query);
 
         if ($result) {
@@ -22,12 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $user_data = mysqli_fetch_assoc($result);
 
                 // Password is correct, log in and store data for the session, redirect to menu
-                $_SESSION['email'] = $email;
+                $_SESSION['email'] = $user_data['email']; // Store email directly
                 $_SESSION['user_data'] = $user_data;
-                var_dump($_SESSION['email']);
-                var_dump($_SESSION['user_data']);
                 header("Location: menu.php");
-                die;
+                exit; // Use exit instead of die
             } else {
                 // Email and password combination not found
                 $login_error = "Invalid Email or password!";
@@ -42,7 +37,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
