@@ -23,43 +23,33 @@ VALUES
 
 -- Table for songs
 CREATE TABLE songs (
-    songID VARCHAR(100) PRIMARY KEY,
+    songID VARCHAR(100) AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(100),
     composer VARCHAR(75)
 );
 
 -- Table for playlists
 CREATE TABLE playlists (
-    playlistID VARCHAR(100) PRIMARY KEY,
+    playlistID VARCHAR(100) AUTO_INCREMENT PRIMARY KEY,
     playlistNumber VARCHAR(20)
 );
 
 -- Table for soloist
 CREATE TABLE soloist (
-    songID VARCHAR(100) FOREIGN KEY, --How do we use a fk?
-    email VARCHAR(100) FOREIGN KEY,
+    soloistID VARCHAR(100) AUTO_INCREMENT PRIMARY KEY
+    songID VARCHAR(100),
+    FOREIGN KEY (songID) REFERENCES songs(songID), 
+    email VARCHAR(100),
+    FOREIGN KEY (email) REFERENCES member(email),
     solo VARCHAR(100)
 );
 
--- Table for user emergency contact
-CREATE TABLE emergencyInfo (
-    email VARCHAR(100) FOREIGN KEY,
-    contactPhone VARCHAR(10),
-    contactfName VARCHAR(100),
-    contactlName VARCHAR (100),
-    contactRelation VARCHAR (30)
-);
-
--- Table for voice section (do we need this twice?)
-CREATE TABLE songs (
-    sectionID VARCHAR(20) PRIMARY KEY,
-    voice VARCHAR(50) FOREIGN KEY
-);
 
 -- Table for rehearsal attendance
 CREATE TABLE Attendance (
-    attendanceID VARCHAR(100) PRIMARY KEY,
-    email VARCHAR(100) FOREIGN KEY,
+    attendanceID VARCHAR(100) AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100),
+    FOREIGN KEY (email) REFERENCES member(email),
     rehearsalDate VARCHAR(75),
     attendanceValue BOOLEAN DEFAULT 0,
     rehearsalLocation VARCHAR(100)
@@ -67,8 +57,9 @@ CREATE TABLE Attendance (
 
 -- Table for events
 CREATE TABLE events (
-    eventID VARCHAR(100) PRIMARY KEY,
-    eventDate VARCHAR(100),
-    eventTime VARCHAR(75),
-    playlistID VARCHAR(100) FOREIGN KEY
+    eventID VARCHAR(100) AUTO_INCREMENT PRIMARY KEY,
+    eventDate DATE,
+    eventTime TIME,
+    playlistID VARCHAR(100),
+    FOREIGN KEY (playlistID) REFERENCES playlists(playlistID)
 );
