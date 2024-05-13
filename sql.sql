@@ -29,43 +29,24 @@ CREATE TABLE songs (
     composer VARCHAR(75)
 );
 
--- Table for playlists
-CREATE TABLE playlists (
-    playlistID INT AUTO_INCREMENT PRIMARY KEY,
-    playlistNumber VARCHAR(20)
+-- Table for schedule
+CREATE TABLE schedule (
+    scheduleID INT AUTO_INCREMENT PRIMARY KEY,
+    rehearsalWeekDay VARCHAR(15),
+    scheduleDate DATE
 );
-
--- Table for soloist
-CREATE TABLE soloist (
-    soloistID INT AUTO_INCREMENT PRIMARY KEY,
-    songID INT,
-    FOREIGN KEY (songID) REFERENCES songs(songID), 
-    email VARCHAR(100),
-    FOREIGN KEY (email) REFERENCES member(email),
-    solo VARCHAR(100)
-);
-
 
 -- Table for rehearsal attendance
-CREATE TABLE Attendance (
+CREATE TABLE attendance (
     attendanceID INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(100),
     FOREIGN KEY (email) REFERENCES member(email),
-    rehearsalDate VARCHAR(75),
-    attendanceValue BOOLEAN DEFAULT 0,
-    rehearsalLocation VARCHAR(100)
+    scheduleID INT,
+    FOREIGN KEY (scheduleID) REFERENCES schedule(scheduleID),
+    attendanceValue BOOLEAN DEFAULT 0
 );
 
--- Table for events
-CREATE TABLE events (
-    eventID INT AUTO_INCREMENT PRIMARY KEY,
-    eventDate DATE,
-    eventTime TIME,
-    playlistID VARCHAR(100),
-    FOREIGN KEY (playlistID) REFERENCES playlists(playlistID)
-);
-
-INSERT INTO Songs(title, artist, composer)
+INSERT INTO songs(title, artist, composer)
 VALUES 
     ('Summertime','Ella Fitzgerald','George Gershwin'),
     ('A Tisket A Tasket','Ella Fitzgerald','Van Alexander'),
@@ -113,6 +94,35 @@ VALUES
     ('Try','Pink','Busbee and Ben West'),
     ('Roar','Katy Perry','Katy Perry'),
     ('Brave','Sara Bareilles','Sara Bareilles'),
-    ('Unstoppable','Sia','Sia')
+    ('Unstoppable','Sia','Sia'),
     ('God Bless America','Kate Smith','Irving Berlin'),
     ('The Star Spangled Banner','USA National Anthem','Francis Scott Key');
+
+/*
+-- Table for playlists
+CREATE TABLE playlists (
+    playlistID INT AUTO_INCREMENT PRIMARY KEY,
+    playlistNumber VARCHAR(20)
+);
+
+-- Table for soloist
+CREATE TABLE soloist (
+    soloistID INT AUTO_INCREMENT PRIMARY KEY,
+    songID INT,
+    FOREIGN KEY (songID) REFERENCES songs(songID), 
+    email VARCHAR(100),
+    FOREIGN KEY (email) REFERENCES member(email),
+    solo VARCHAR(100)
+);
+
+-- Table for events
+CREATE TABLE events (
+    eventID INT AUTO_INCREMENT PRIMARY KEY,
+    eventDate DATE,
+    eventTime TIME,
+    playlistID VARCHAR(100),
+    FOREIGN KEY (playlistID) REFERENCES playlists(playlistID)
+);
+
+*/
+

@@ -5,7 +5,7 @@ session_start();
 include("connect.php");
 include("functions.php");
 
-// Check for logged in
+// Check if the user is logged in
 $user_data = check_login($connect);
 $user_query = "SELECT * FROM member";
 $user_result = mysqli_query($connect, $user_query);
@@ -16,48 +16,8 @@ $user_result = mysqli_query($connect, $user_query);
 <head>
     <title>All Users</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-            text-align: center;
-        }
-
-        .header {
-            background-color: #333;
-            color: white;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        .user-box {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            padding: 15px;
-            text-align: left;
-        }
-
-        .logout-link {
-            display: block;
-            margin-top: 20px;
-            text-decoration: none;
-            background-color: #333;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-        }
-    </style>
 </head>
-<body>
+<body class="page">
     <div class="header">
         <h2>All Users</h2>
         <p>Welcome, <?php echo $user_data['fName']; ?>!</p>
@@ -89,6 +49,9 @@ $user_result = mysqli_query($connect, $user_query);
             echo "Query failed: " . mysqli_error($connect);
         }
         ?>
+            
+        <h3>Admin Options:</h3>
+        <a class="delete-link" href="delete_member.php">Delete member</a>
         <a class="logout-link" href="menu.php">Menu</a>
         <a class="logout-link" href="logout.php">Logout</a>
     </div>
