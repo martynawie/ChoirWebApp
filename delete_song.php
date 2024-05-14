@@ -11,7 +11,8 @@ $user_data = check_login($connect);
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['deleteSong'])) {
     // Delete the selected song from the database
     $songID = $_POST['songID'];
-    $deleteQuery = "DELETE FROM songs WHERE songID = '$songID'";
+    $deleteQuery = "DELETE FROM songs 
+                    WHERE songID = '$songID'";
     mysqli_query($connect, $deleteQuery);
 
     header("Location: songs.php"); // Redirect back to the song listing page
@@ -19,7 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['deleteSong'])) {
 }
 
 // Fetch all songs for the form selection
-$query = "SELECT songID, title FROM songs";
+$query = "SELECT songID, title 
+          FROM songs";
 $result = mysqli_query($connect, $query);
 $songs = mysqli_fetch_all($result, MYSQLI_ASSOC);
 ?>

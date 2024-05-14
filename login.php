@@ -11,7 +11,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     // Check if email and password are provided
     if (!empty($email) && !empty($password)) {
-        $query = "SELECT * FROM member WHERE email='$email' AND password='$password'";
+        $query = "SELECT * 
+        FROM member 
+        WHERE email='$email' AND password='$password'";
         $result = mysqli_query($connect, $query);
 
         if ($result) {

@@ -9,7 +9,8 @@ include("functions.php");
 $user_data = check_login($connect);
 
 // Fetch all songs from the database
-$song_query = "SELECT * FROM songs";
+$song_query = "SELECT * 
+               FROM songs";
 $song_result = mysqli_query($connect, $song_query);
 ?>
 <!DOCTYPE html>

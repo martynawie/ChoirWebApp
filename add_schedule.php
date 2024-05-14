@@ -11,7 +11,8 @@ $user_data = check_login($connect);
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addSchedule'])) {
     $rehearsalWeekDay = $_POST['rehearsalWeekDay'];
     $scheduleDate = $_POST['scheduleDate'];
-    $insertQuery = "INSERT INTO schedule (rehearsalWeekDay, scheduleDate) VALUES ('$rehearsalWeekDay', '$scheduleDate')";
+    $insertQuery = "INSERT INTO schedule (rehearsalWeekDay, scheduleDate) 
+                    VALUES ('$rehearsalWeekDay', '$scheduleDate')";
     if (mysqli_query($connect, $insertQuery)) {
         echo "<p>Schedule added successfully.</p>";
     } else {

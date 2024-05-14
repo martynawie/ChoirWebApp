@@ -18,16 +18,16 @@ if (!$user_data) {
 if ($user_data['is_admin']) {
     // Admin sees everyone's attendance
     $attendance_query = "SELECT a.email, a.attendanceValue, s.scheduleDate 
-    FROM attendance a 
-    JOIN schedule s ON a.scheduleID = s.scheduleID 
-    ORDER BY s.scheduleDate DESC";
+                         FROM attendance a 
+                         JOIN schedule s ON a.scheduleID = s.scheduleID 
+                         ORDER BY s.scheduleDate DESC";
 } else {
     // Regular users see only their own attendance
     $email = $user_data['email'];  
     $attendance_query = "SELECT a.email, a.attendanceValue, s.scheduleDate 
-    FROM attendance a 
-    JOIN schedule s ON a.scheduleID = s.scheduleID 
-    WHERE a.email = '$email' ORDER BY s.scheduleDate DESC";
+                         FROM attendance a 
+                         JOIN schedule s ON a.scheduleID = s.scheduleID 
+                         WHERE a.email = '$email' ORDER BY s.scheduleDate DESC";
 }
 
 $attendance_result = mysqli_query($connect, $attendance_query);

@@ -7,7 +7,8 @@ include("functions.php");
 
 // Check if the user is logged in
 $user_data = check_login($connect);
-$user_query = "SELECT * FROM member";
+$user_query = "SELECT * 
+               FROM member";
 $user_result = mysqli_query($connect, $user_query);
 
 ?>

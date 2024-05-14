@@ -24,7 +24,7 @@
         // Additional sections visible only for admin users
         if ($user_data && $user_data['is_admin'] == 1) {
             ?>
-            <!-- Admin Only: Members Management Box -->
+            <!-- Admin Only -->
             <div class="menu-flex-box">
                 <h2>Members</h2>
                 <p>See all the members with option to delete a member.</p>
@@ -60,7 +60,7 @@
 
         <?php } ?>
 
-        <!-- General User Access: Song Library Box -->
+        <!-- General User Access:-->
         <div class="menu-flex-box">
             <h2>Song Library</h2>
             <p>Catalog of songs with details like title, author and composer.</p>

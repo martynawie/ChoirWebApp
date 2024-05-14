@@ -9,11 +9,13 @@ $user_data = check_login($connect);
 
 // Determine if the user is an admin or not
 if ($user_data && $user_data['is_admin'] == 1) {
-    $schedule_query = "SELECT * FROM schedule"; // Admin sees all schedules
+    $schedule_query = "SELECT * 
+                       FROM schedule"; // Admin sees all schedules
 } else {
     // Regular users see only schedules on their day
     $userDay = $user_data['scheduleDay']; 
-    $schedule_query = "SELECT * FROM schedule WHERE rehearsalWeekDay = '$userDay'";
+    $schedule_query = "SELECT * 
+                       FROM schedule WHERE rehearsalWeekDay = '$userDay'";
 }
 
 $schedule_result = mysqli_query($connect, $schedule_query);

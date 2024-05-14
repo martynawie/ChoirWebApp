@@ -12,7 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['addSong'])) {
     $title = $_POST['title'];
     $artist = $_POST['artist'];
     $composer = $_POST['composer'];
-    $insertQuery = "INSERT INTO songs (title, artist, composer) VALUES ('$title', '$artist', '$composer')";
+    $insertQuery = "INSERT INTO songs (title, artist, composer) 
+                    VALUES ('$title', '$artist', '$composer')";
     if (mysqli_query($connect, $insertQuery)) {
         echo "<p>Song added successfully.</p>";
     } else {

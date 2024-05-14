@@ -43,7 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     // If there are no errors insert to database
     if (!isset($password_error) && !isset($date_error) && !isset($birth_date_error) && !isset($phoneNumber_error)) {
-        $query = "INSERT INTO member (email, fName, lName, password, memberAddress, phoneNumber, dateJoined, birthDate, voice, scheduleDay) VALUES ('$email', '$fName', '$lName', '$password', '$memberAddress', '$phoneNumber', '$dateJoined', '$birthDate', '$voice','$scheduleDay')";
+        $query = "INSERT INTO member (email, fName, lName, password, memberAddress, phoneNumber, dateJoined, birthDate, voice, scheduleDay) 
+                  VALUES ('$email', '$fName', '$lName', '$password', '$memberAddress', '$phoneNumber', '$dateJoined', '$birthDate', '$voice','$scheduleDay')";
         mysqli_query($connect, $query);
         header("Location: login.php");
         die;

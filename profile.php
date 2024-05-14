@@ -8,7 +8,9 @@ include("functions.php");
 // Check if the user is logged in
 $user_data = check_login($connect);
 $user_email = $user_data['email'];
-$user_query = "SELECT * FROM member WHERE email = '$user_email'";
+$user_query = "SELECT * 
+               FROM member 
+               WHERE email = '$user_email'";
 $user_result = mysqli_query($connect, $user_query);
 
 ?>

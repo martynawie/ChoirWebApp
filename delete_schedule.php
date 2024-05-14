@@ -11,7 +11,8 @@ $user_data = check_login($connect);
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['deleteSchedule'])) {
     // Delete the selected schedule from the database
     $scheduleID = $_POST['scheduleID'];
-    $deleteQuery = "DELETE FROM schedule WHERE scheduleID = '$scheduleID'";
+    $deleteQuery = "DELETE FROM schedule 
+                    WHERE scheduleID = '$scheduleID'";
     mysqli_query($connect, $deleteQuery);
 
     header("Location: schedule.php"); // Redirect back to the schedule listing page
